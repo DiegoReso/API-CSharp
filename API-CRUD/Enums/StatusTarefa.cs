@@ -1,6 +1,15 @@
-﻿namespace API_CRUD.Enums
+﻿using System.ComponentModel;
+
+namespace API_CRUD.Enums
 {
-    public class StatusTarefa
+    public enum StatusTarefa
     {
+        [Description("A fazer")]
+        AFazer = 1,
+        [Description("Em andamento")]
+        EmAndamento = 2,
+        [Description("Concluido")]
+        Concluido = 3
+        
     }
 }

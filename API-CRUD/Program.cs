@@ -1,3 +1,8 @@
+using API_CRUD.Data;
+using API_CRUD.Repositorios;
+using API_CRUD.Repositorios.Interfaces;
+using Microsoft.EntityFrameworkCore;
+
 namespace API_CRUD
 {
     public class Program
@@ -12,6 +17,15 @@ namespace API_CRUD
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddEntityFrameworkSqlServer()
+                .AddDbContext<ApiCrudDbcontext>(
+                options => options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase"))
+                );
+
+            builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
+
+
 
             var app = builder.Build();
 

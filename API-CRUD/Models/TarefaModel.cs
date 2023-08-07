@@ -1,4 +1,6 @@
-﻿namespace API_CRUD.Models
+﻿using API_CRUD.Enums;
+
+namespace API_CRUD.Models
 {
     public class TarefaModel
     {
@@ -9,7 +11,7 @@
 
         public string? Descricao { get; set; }
 
-        public int Status { get; set; }
+        public StatusTarefa Status { get; set; }
    
 
     }

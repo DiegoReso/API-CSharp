@@ -1,4 +1,5 @@
-﻿using API_CRUD.Models;
+﻿using API_CRUD.Data.Map;
+using API_CRUD.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace API_CRUD.Data
@@ -16,6 +17,9 @@ namespace API_CRUD.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new UsuarioMap());
+            modelBuilder.ApplyConfiguration(new TarefaMap());
+
             base.OnModelCreating(modelBuilder);
         }
 
